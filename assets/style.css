@@ -1,0 +1,498 @@
+/* ==========================================================
+   PEDA EDU - static clone của trang Linkbio (theme gedu_0)
+   Nền = ảnh cover blur 30px, khung nội dung đen bo góc 40px
+   ========================================================== */
+
+:root {
+  --link-font: 'Montserrat', Helvetica, sans-serif;
+
+  --cover-color: #000000;
+
+  --title-color: #ffffff;
+  --desc-color: #ffffff;
+
+  --block-corner: 30px;
+  --block-border: 2px;
+  --block-border-color: #ffffff;
+  --block-bg-color: rgba(255, 255, 255, 1);
+  --block-font-color: #111111;
+
+  --block-margin: 16px;
+
+  --action-bg: #111111;
+  --action-font: #ffffff;
+
+  --app-width: 640px;
+  --app-radius: 40px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  background: #000;
+  color: var(--title-color);
+  font-family: var(--link-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; }
+
+/* ==================== NỀN ẢNH BLUR ==================== */
+.page-app-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+  background: #0b1a3a;
+}
+
+.page-app-bg .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-app-bg .bg div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/avatar-cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(30px);
+  -webkit-filter: blur(30px);
+  transform: scale(1.05);
+  transform-origin: center;
+}
+
+/* ==================== KHUNG ĐEN BO GÓC ==================== */
+.page-app {
+  max-width: var(--app-width);
+  margin: auto;
+  position: relative;
+  padding-top: 40px;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.bg-container {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  right: 0;
+  height: 100%;
+  border-radius: var(--app-radius);
+  overflow: hidden;
+  background: #000;
+  z-index: -1;
+}
+
+.page-app .body {
+  margin: auto;
+  padding: 20px 20px 40px;
+  max-width: 100%;
+}
+
+.container {
+  margin: auto;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+/* ========================= COVER ========================= */
+.cover--bg {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  height: 0;
+  padding-bottom: 66.666%;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.cover--bg-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cover--bg-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* gradient mask: fade ảnh về đen ở đáy */
+.cover--bg-mask {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30%;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(rgba(0, 0, 0, 0), var(--cover-color));
+}
+
+/* ========================= PROFILE ========================= */
+.center {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.center-profile {
+  margin-top: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.layout-basic { text-align: center; }
+
+.text h3 {
+  position: relative;
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 600;
+  margin: 12px 0 6px;
+  word-break: break-word;
+  color: var(--title-color);
+}
+
+.desc {
+  color: var(--desc-color);
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 20px;
+  margin-bottom: 12px;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+/* ========================= CONTENT ========================= */
+.page-section { margin-top: 0; }
+
+.content-list { max-width: 560px; margin: 0 auto; }
+
+.content-list > * + * { margin-top: var(--block-margin); }
+.content-list > *:first-child { margin-top: 0; }
+
+/* --- divider: vạch đứt (dash co giãn theo bề rộng) --- */
+.item-divider {
+  margin: 28px 0 24px;
+  padding: 0;
+  height: 4px;
+  color: var(--title-color);
+  background-image: repeating-linear-gradient(
+    90deg,
+    currentColor 0 8.5%,
+    transparent 8.5% 13%
+  );
+}
+
+/* ========================= BUTTON ========================= */
+.item-style {
+  position: relative;
+  display: block;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  background: transparent;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.item {
+  display: block;
+  position: relative;
+  border-radius: var(--block-corner);
+  background-color: var(--block-bg-color) !important;
+  border: var(--block-border) solid var(--block-border-color) !important;
+}
+
+.item.btn,
+.item .btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 42px 8px 6px;
+  color: var(--block-font-color) !important;
+  text-align: center;
+  word-break: break-word;
+}
+
+.item.btn .btn-icon,
+.item .btn-icon {
+  display: block !important;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  position: relative;
+  left: 6px;
+}
+
+.item.btn .btn-icon img,
+.item .btn-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: baseline;
+  background: #eee;
+}
+
+.item.btn .btn-icon span,
+.item .btn-icon span { display: none; }
+
+.item.btn .btn-text,
+.item .btn-text {
+  width: 100%;
+  line-height: 1.6em;
+  padding-left: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  color: var(--block-font-color) !important;
+}
+
+.item.btn .btn-text .link-text,
+.item .btn-text .link-text {
+  display: block !important;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--block-font-color) !important;
+}
+
+/* nút "Đăng Ký Thi Thử" (bcolor #333 / tcolor #fff) */
+.item.btn-dark {
+  background-color: #333333 !important;
+  border-color: #333333 !important;
+}
+
+.item.btn-dark,
+.item.btn-dark .btn,
+.item.btn-dark .btn-text,
+.item.btn-dark .btn-text .link-text {
+  color: #ffffff !important;
+}
+
+.item.btn-dark .btn-icon img,
+.item.btn-dark .btn .btn-icon img { background: #222; }
+
+@media (hover: hover) {
+  .item-style:hover .item { transform: scale(1.01); }
+  .item.btn-dark.item-style:hover .item { background-color: #3d3d3d !important; }
+}
+
+.item-style:active .item { transform: scale(.985); }
+
+/* ==================== GRAPHIC CARD ==================== */
+.item-graphext,
+.item-graphic { margin-top: 20px; }
+
+.embed-graphext-bg {
+  position: relative;
+  border-radius: var(--block-corner);
+  background-color: var(--block-bg-color) !important;
+  border: var(--block-border) solid var(--block-border-color) !important;
+  overflow: hidden;
+}
+
+.embed-graphext-bg > a {
+  display: block;
+  text-decoration: none;
+  color: var(--block-font-color);
+}
+
+/* khung ảnh vuông, có viền trắng 10px bên trong card */
+.image-box {
+  position: relative;
+  padding: 10px;
+  padding-bottom: calc(10px + (100% - 20px));
+  overflow: hidden;
+}
+
+.image-box img {
+  position: absolute;
+  object-fit: cover;
+  width: calc(100% - 20px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: auto;
+  border-radius: calc(var(--block-corner) * .8);
+}
+
+.embed-event-promote {
+  padding: 14px 16px 16px;
+  text-align: left;
+}
+
+.embed-event-detail .event-title {
+  margin: 0 0 4px;
+  font-size: 18px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: var(--block-font-color);
+  word-break: break-word;
+}
+
+.embed-event-detail .event-desc {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+  color: #333;
+  word-break: break-word;
+}
+
+.embed-event--share { margin-top: 14px; }
+
+.event-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 44px;
+  padding: 4px 20px;
+  border-radius: calc(var(--block-corner) * .8);
+  background: var(--action-bg);
+  color: var(--action-font);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ========================= HEADER ========================= */
+.item-header {
+  padding-top: 18px;
+  padding-bottom: 12px;
+  color: var(--title-color);
+}
+
+.item-header h3 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.4;
+  word-break: break-word;
+  margin: 0;
+}
+
+.item-header h3 p {
+  display: inline-block;
+  border: 0 solid var(--title-color);
+  padding: 0;
+}
+
+/* ========================= FOOTER ========================= */
+.page-footer {
+  display: block;
+  margin-top: 36px;
+  text-align: center;
+}
+
+.footer-brand {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #fff;
+}
+
+.footer-hotline {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: #eaeaea;
+}
+
+.footer-hotline a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(255, 255, 255, .45);
+}
+
+.footer-note {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #8f8f8f;
+}
+
+/* ==================== ANIMATION (featured) ==================== */
+@keyframes jello {
+  0%, 44.99%, 100% { transform: scale3d(1, 1, 1); }
+  15% { transform: scale3d(.9, 1.1, 1); }
+  30% { transform: scale3d(1.1, .9, 1); }
+  45% { transform: scale3d(.95, 1.05, 1); }
+  60% { transform: scale3d(1.05, .95, 1); }
+  75% { transform: scale3d(.98, 1.02, 1); }
+}
+
+.jello.animate { animation: jello 1.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .jello.animate { animation: none; }
+  * { transition: none !important; }
+}
+
+/* ========================= RESPONSIVE ========================= */
+@media (max-width: 480px) {
+  :root {
+    --block-corner: 26px;
+    --app-radius: 28px;
+  }
+
+  .page-app { padding-top: 20px; }
+  .bg-container { top: 20px; }
+  .page-app .body { padding: 16px 14px 36px; }
+  .cover--bg { border-radius: 14px 14px 0 0; }
+  .text h3 { font-size: 18px; }
+  .desc { font-size: 15px; line-height: 20px; }
+  .item.btn, .item .btn { padding: 7px 34px 7px 4px; }
+  .item.btn .btn-icon, .item .btn-icon { width: 36px; min-width: 36px; height: 36px; line-height: 36px; left: 5px; }
+  .item.btn .btn-text,
+  .item .btn-text,
+  .item.btn .btn-text .link-text, .item .btn-text .link-text { font-size: 15px; }
+  .item-header h3 { font-size: 17px; }
+  .embed-event-detail .event-title { font-size: 16px; }
+  .page-footer { margin-top: 28px; }
+}
+
+@media (max-width: 340px) {
+  .desc { font-size: 14px; }
+  .item.btn .btn-text,
+  .item .btn-text,
+  .item.btn .btn-text .link-text, .item .btn-text .link-text { font-size: 14px; }
+}
