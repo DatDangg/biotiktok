@@ -1,5 +1,5 @@
 /* ==========================================================
-   PEDA EDU - static clone của trang Linkbio (theme gedu_0)
+   PEDA EDU - landing page
    Nền = ảnh cover blur 30px, khung nội dung đen bo góc 40px
    ========================================================== */
 
@@ -73,7 +73,7 @@ img { max-width: 100%; }
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("img/avatar-cover.jpg");
+  background-image: url("img/cover.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -206,7 +206,7 @@ img { max-width: 100%; }
 .content-list > *:first-child { margin-top: 0; }
 
 /* --- divider: vạch đứt (dash co giãn theo bề rộng) --- */
-.item-divider {
+.divider {
   margin: 28px 0 24px;
   padding: 0;
   height: 4px;
@@ -294,34 +294,19 @@ img { max-width: 100%; }
   color: var(--block-font-color) !important;
 }
 
-/* nút "Đăng Ký Thi Thử" (bcolor #333 / tcolor #fff) */
-.item.btn-dark {
-  background-color: #333333 !important;
-  border-color: #333333 !important;
-}
 
-.item.btn-dark,
-.item.btn-dark .btn,
-.item.btn-dark .btn-text,
-.item.btn-dark .btn-text .link-text {
-  color: #ffffff !important;
-}
-
-.item.btn-dark .btn-icon img,
-.item.btn-dark .btn .btn-icon img { background: #222; }
 
 @media (hover: hover) {
   .item-style:hover .item { transform: scale(1.01); }
-  .item.btn-dark.item-style:hover .item { background-color: #3d3d3d !important; }
-}
+  }
 
 .item-style:active .item { transform: scale(.985); }
 
 /* ==================== GRAPHIC CARD ==================== */
-.item-graphext,
-.item-graphic { margin-top: 20px; }
+.card,
+.card { margin-top: 20px; }
 
-.embed-graphext-bg {
+.card__bg {
   position: relative;
   border-radius: var(--block-corner);
   background-color: var(--block-bg-color) !important;
@@ -329,21 +314,21 @@ img { max-width: 100%; }
   overflow: hidden;
 }
 
-.embed-graphext-bg > a {
+.card__bg > a {
   display: block;
   text-decoration: none;
   color: var(--block-font-color);
 }
 
 /* khung ảnh vuông, có viền trắng 10px bên trong card */
-.image-box {
+.card__img {
   position: relative;
   padding: 10px;
   padding-bottom: calc(10px + (100% - 20px));
   overflow: hidden;
 }
 
-.image-box img {
+.card__img img {
   position: absolute;
   object-fit: cover;
   width: calc(100% - 20px);
@@ -356,12 +341,12 @@ img { max-width: 100%; }
   border-radius: calc(var(--block-corner) * .8);
 }
 
-.embed-event-promote {
+.card__body {
   padding: 14px 16px 16px;
   text-align: left;
 }
 
-.embed-event-detail .event-title {
+.card__detail .card__title {
   margin: 0 0 4px;
   font-size: 18px;
   line-height: 1.35;
@@ -370,7 +355,7 @@ img { max-width: 100%; }
   word-break: break-word;
 }
 
-.embed-event-detail .event-desc {
+.card__detail .card__desc {
   margin-top: 4px;
   font-size: 14px;
   line-height: 1.5;
@@ -379,9 +364,9 @@ img { max-width: 100%; }
   word-break: break-word;
 }
 
-.embed-event--share { margin-top: 14px; }
+.card__cta { margin-top: 14px; }
 
-.event-cta {
+.card__btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -396,13 +381,13 @@ img { max-width: 100%; }
 }
 
 /* ========================= HEADER ========================= */
-.item-header {
+.text-block {
   padding-top: 18px;
   padding-bottom: 12px;
   color: var(--title-color);
 }
 
-.item-header h3 {
+.text-block h3 {
   text-align: center;
   font-weight: 600;
   font-size: 20px;
@@ -411,7 +396,7 @@ img { max-width: 100%; }
   margin: 0;
 }
 
-.item-header h3 p {
+.text-block h3 p {
   display: inline-block;
   border: 0 solid var(--title-color);
   padding: 0;
@@ -485,8 +470,8 @@ img { max-width: 100%; }
   .item.btn .btn-text,
   .item .btn-text,
   .item.btn .btn-text .link-text, .item .btn-text .link-text { font-size: 15px; }
-  .item-header h3 { font-size: 17px; }
-  .embed-event-detail .event-title { font-size: 16px; }
+  .text-block h3 { font-size: 17px; }
+  .card__detail .card__title { font-size: 16px; }
   .page-footer { margin-top: 28px; }
 }
 
